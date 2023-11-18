@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function PostCard({title,image,id}) {
     const navigate = useNavigate();
+
   return (
     <Card onClick={()=>navigate(`/post/${id}`)} >
       <CardActionArea>

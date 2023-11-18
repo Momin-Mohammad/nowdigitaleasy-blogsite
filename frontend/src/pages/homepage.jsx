@@ -3,16 +3,32 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import PostCard from "../components/postCard";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import AddPostModal from "../components/addPosModal";
+import AddPostModal from "../components/addPostModal";
 
 export default function Homepage(){
     const[posts,setPosts] = useState([]);
 
-    useEffect(()=>{
+    const getAllPosts = ()=>{
         axios.get("https://noweasydigital-mockserver.onrender.com/posts")
         .then(res=>setPosts(res.data))
         .catch(err=>console.log(err))
+    }
+
+    useEffect(()=>{
+        getAllPosts();
     },[]);
+
+    const addPost=({title,image,content})=>{
+        let newPost={
+          id : posts.length + 1,
+          title : title,
+          image : image,
+          content : content
+        }
+        axios.post("https://noweasydigital-mockserver.onrender.com/posts",newPost)
+        .then(res=>getAllPosts())
+        .catch(err=>console.log(err))
+      }
 
     const addToFavorite=(post)=>{
         axios.post("https://noweasydigital-mockserver.onrender.com/favourites",post)
@@ -22,8 +38,8 @@ export default function Homepage(){
     }
     return(
         <Container >
-            <Box variant="h6" margin={"3%"} >
-                <AddPostModal />
+            <Box variant="h6" marginTop={"8%"} marginBottom={"3%"}>
+                <AddPostModal addPost={addPost} />
                 </Box>
            <hr/>
             <Grid container >

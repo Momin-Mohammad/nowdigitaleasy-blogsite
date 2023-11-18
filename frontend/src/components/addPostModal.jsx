@@ -7,8 +7,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function AddPostModal() {
+export default function AddPostModal({addPost}) {
   const [open, setOpen] = React.useState(false);
+  const[title,setTitle] = React.useState("");
+  const[image,setImage] = React.useState("");
+  const[content,setContent] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -17,6 +20,8 @@ export default function AddPostModal() {
   const handleClose = () => {
     setOpen(false);
   };
+
+ 
 
   return (
     <React.Fragment>
@@ -37,9 +42,11 @@ export default function AddPostModal() {
             type="text"
             fullWidth
             variant="standard"
+            value={title}
+            onChange={(e)=>setTitle(e.target.value)}
           />
 
-<TextField
+          <TextField
             autoFocus
             margin="dense"
             id="image"
@@ -47,9 +54,11 @@ export default function AddPostModal() {
             type="text"
             fullWidth
             variant="standard"
+            value={image}
+            onChange={(e)=>setImage(e.target.value)}
           />
 
-<TextField
+          <TextField
             autoFocus
             margin="dense"
             id="content"
@@ -59,11 +68,13 @@ export default function AddPostModal() {
             multiline
             rows={6}
             variant="standard"
+            value={content}
+            onChange={(e)=>setContent(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>ADD POST</Button>
+          <Button onClick={()=>addPost({title,image,content})}>ADD POST</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
