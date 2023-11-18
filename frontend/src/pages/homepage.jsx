@@ -1,8 +1,9 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import PostCard from "../components/postCard";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddPostModal from "../components/addPosModal";
 
 export default function Homepage(){
     const[posts,setPosts] = useState([]);
@@ -21,7 +22,9 @@ export default function Homepage(){
     }
     return(
         <Container >
-            Home page
+            <Box variant="h6" margin={"3%"} >
+                <AddPostModal />
+                </Box>
            <hr/>
             <Grid container >
                 {
