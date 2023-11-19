@@ -21,16 +21,22 @@ export default function AddPostModal({addPost}) {
     setOpen(false);
   };
 
- 
-
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button sx={{
+          backgroundImage:"linear-gradient(to bottom, rgb(28, 149, 255),rgb(61, 148, 148),rgb(73, 163, 73))",
+          color:"white",
+          fontWeight:"bold",
+          padding:"2%"
+          }}
+          variant="h5"
+          onClick={handleClickOpen}>
         Add New Post
       </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Form to Add Post</DialogTitle>
-        <DialogContent>
+      <Dialog 
+      open={open} onClose={handleClose}>
+        <DialogTitle sx={{backgroundColor: "rgb(245, 245, 245)"}}>Form to Add Post</DialogTitle>
+        <DialogContent sx={{backgroundColor: "rgb(245, 245, 245)"}}>
           <DialogContentText>
             Please fill all the fields.
           </DialogContentText>
@@ -72,9 +78,19 @@ export default function AddPostModal({addPost}) {
             onChange={(e)=>setContent(e.target.value)}
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={()=>addPost({title,image,content})}>ADD POST</Button>
+        <DialogActions sx={{backgroundColor: "rgb(245, 245, 245)"}}>
+          <Button sx={{
+          backgroundImage:"linear-gradient(to bottom, rgb(28, 149, 255),rgb(61, 148, 148),rgb(73, 163, 73))",
+          color:"white",
+          fontWeight:"bold",
+          padding:"2%"
+          }} onClick={handleClose}>Cancel</Button>
+          <Button sx={{
+          backgroundImage:"linear-gradient(to bottom, rgb(28, 149, 255),rgb(61, 148, 148),rgb(73, 163, 73))",
+          color:"white",
+          fontWeight:"bold",
+          padding:"2%"
+          }} onClick={()=>addPost({title,image,content})}>ADD POST</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

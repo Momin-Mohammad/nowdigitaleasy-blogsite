@@ -9,23 +9,40 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 export default function Navbar() {
   const navigate = useNavigate();
   return (
-    <Box sx={{ flexGrow: 1 }} position="sticky" top={"0px"} zIndex={1}>
-      <AppBar >
-        <Toolbar>
+    <Box 
+    sx={{ flexGrow: 1, }} 
+    position="sticky" 
+    top={"0px"} 
+    zIndex={1} >
+      <AppBar>
+        <Toolbar
+         sx={{
+          backgroundImage:"linear-gradient(to right, rgb(28, 149, 255),rgb(61, 148, 148),rgb(73, 163, 73))",
+          color:"black",
+          fontWeight:"bolder",
+          fontFamily:"cursive"
+          }}>
         <Box sx={{
           flexGrow: 1, 
           display:"flex",
           alignItems:"center",
           gap:"8%"
           }} >
-        <Typography fontFamily="cursive" variant="h6">
+        <Typography border={"3px solid black"} fontWeight={"bolder"} p={"0.5% 1%"} variant="h6">
         BLOGS
       </Typography>
-          <Typography onClick={()=>navigate("/")} variant="h8" >
+          <Typography sx={{cursor:"pointer"}} onClick={()=>navigate("/")} variant="h7">
             Homepage
           </Typography>
           </Box>
-          <Typography onClick={()=>navigate("/favourites")} variant="h8" >Favourites <FavoriteIcon /> </Typography>
+          <Typography 
+          sx={{cursor:"pointer"}}
+          display={"flex"} 
+          color={"red"}
+          gap={"3%"} 
+          alignItems={"center"} 
+          onClick={()=>navigate("/favourites")} 
+          variant="h8" > <FavoriteIcon /> </Typography>
         </Toolbar>
       </AppBar>
     </Box>

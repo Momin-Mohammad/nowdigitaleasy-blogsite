@@ -34,7 +34,11 @@ export default function Favouritespage(){
             md={5}
             lg={5}
             key={ele.id} >
-                <Box onClick={()=>removeFromFavorite(ele.id)} color={"red"}><HeartBrokenIcon /> </Box>
+                <Box
+                sx={{backgroundImage:"linear-gradient(to right, rgb(28, 149, 255),rgb(61, 148, 148),rgb(73, 163, 73))",
+                padding:"1% 0%"
+            }}
+                 onClick={()=>removeFromFavorite(ele.id)} color={"red"}><HeartBrokenIcon /> </Box>
                 <PostCard id={ele.id} image={ele.image} title={ele.title} />
             </Grid>
             )
