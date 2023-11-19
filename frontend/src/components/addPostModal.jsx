@@ -41,6 +41,7 @@ export default function AddPostModal({addPost}) {
             Please fill all the fields.
           </DialogContentText>
           <TextField
+            required
             autoFocus
             margin="dense"
             id="title"
@@ -53,6 +54,7 @@ export default function AddPostModal({addPost}) {
           />
 
           <TextField
+            required
             autoFocus
             margin="dense"
             id="image"
@@ -65,6 +67,7 @@ export default function AddPostModal({addPost}) {
           />
 
           <TextField
+            required
             autoFocus
             margin="dense"
             id="content"
@@ -90,7 +93,7 @@ export default function AddPostModal({addPost}) {
           color:"white",
           fontWeight:"bold",
           padding:"2%"
-          }} onClick={()=>addPost({title,image,content})}>ADD POST</Button>
+          }} onClick={()=>addPost({title,image,content,handleClose})}>ADD POST</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
