@@ -4,14 +4,22 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddToFavButton from "../components/addToFavButton";
 
-export default function Postpage(){
+export default function Postpage({setFavBlogs}){
     const {id} = useParams();
     const[post,setPost] = useState([]);
+
+    const getAllFav=()=>{
+        axios.get("https://noweasydigital-mockserver.onrender.com/favourites")
+        .then(res=>setFavBlogs(res.data.length))
+        .catch(err=>console.log(err))
+    }
 
     useEffect(()=>{
         axios.get(`https://noweasydigital-mockserver.onrender.com/posts?id=${id}`)
         .then(res=>setPost(res.data))
         .catch(err=>console.log(err))
+
+        getAllFav();
     },[]);
 
     return(
@@ -20,7 +28,7 @@ export default function Postpage(){
             borderLeft:"2px solid rgb(28, 149, 255)",
             borderRight:"2px solid rgb(73, 163, 73)",
             }}>
-            <AddToFavButton ele={post[0]} />
+            <AddToFavButton getAllFav={getAllFav} ele={post[0]} />
             <img width={"70%"} src={post[0]?.image} alt="post image" />
             <Typography gutterBottom variant="h4" component="div">
             {post[0]?.title}

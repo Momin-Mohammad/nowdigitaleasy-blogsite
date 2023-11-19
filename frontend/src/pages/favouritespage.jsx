@@ -5,7 +5,7 @@ import axios from "axios";
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import ShowSkeleton from "../components/skeleton";
 
-export default function Favouritespage(){
+export default function Favouritespage({setFavBlogs}){
     const[posts,setPosts] = useState([]);
     const[loading,setLoading] = useState(false);
 
@@ -14,6 +14,7 @@ export default function Favouritespage(){
         axios.get("https://noweasydigital-mockserver.onrender.com/favourites")
         .then(res=>{
             setPosts(res.data);
+            setFavBlogs(res.data.length);
             setLoading(false);
         })
         .catch(err=>console.log(err))

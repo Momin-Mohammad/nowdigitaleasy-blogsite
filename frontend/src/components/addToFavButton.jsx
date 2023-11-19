@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Toast from "../components/toast";
 import { useParams } from "react-router-dom";
 
-export default function AddToFavButton({ele}){
+export default function AddToFavButton({getAllFav,ele}){
     const[fav,setFav] = useState(false);
     const {id} = useParams();
     const[showToast,setShowToast] = useState({status:false,severity:"",msg:""})
@@ -14,6 +14,7 @@ export default function AddToFavButton({ele}){
         axios.post("https://noweasydigital-mockserver.onrender.com/favourites",post)
         .then(res=>{
             setFav(true);
+            getAllFav();
             setShowToast({...showToast,status:true,severity:"success",msg:"Blog added to Favorite"})
         })
         .catch(err=>setShowToast({...showToast,status:true,severity:"error",msg:err}))

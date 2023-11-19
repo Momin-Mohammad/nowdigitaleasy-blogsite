@@ -7,7 +7,7 @@ export default function SimplePagination({count,pageChange,page}) {
     <Container sx={{
         backgroundImage:"linear-gradient(to right, rgb(28, 149, 255),rgb(61, 148, 148),rgb(73, 163, 73))",
         padding:"0.5% 0%",
-        width:"50%",
+        width:{base:"75%",xs:"95%",sm:"70%",md:"60%",lg:"50%"},
         margin:"auto",
         position:"sticky",
         bottom:"0px"

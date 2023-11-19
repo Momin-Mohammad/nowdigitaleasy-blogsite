@@ -7,7 +7,7 @@ import SimplePagination from "../components/pagination";
 import AddToFavButton from "../components/addToFavButton";
 import ShowSkeleton from "../components/skeleton";
 
-export default function Homepage(){
+export default function Homepage({setFavBlogs}){
     const[posts,setPosts] = useState([]);
     const[page,setPage] = useState(1);
     const[count,setCount] = useState(1);
@@ -15,7 +15,7 @@ export default function Homepage(){
 
     const getAllPosts = ()=>{
         setLoading(true);
-        axios.get(`https://noweasydigital-mockserver.onrender.com/posts?_page=${page}&_limit=4`)
+        axios.get(`https://noweasydigital-mockserver.onrender.com/posts?_page=${page}&_limit=10`)
         .then(res=>{
             setPosts(res.data)
             setLoading(false)
@@ -26,14 +26,20 @@ export default function Homepage(){
     const totalPages = ()=>{
         axios.get("https://noweasydigital-mockserver.onrender.com/posts")
         .then(res=>{
-            if(res.data.length%4 === 0){
-            setCount(res.data.length/4)
+            if(res.data.length%10 === 0){
+            setCount(res.data.length/10)
         }else{
-        let pages = Math.floor(res.data.length / 4);
+        let pages = Math.floor(res.data.length / 10);
         let totalPages = pages+1;
         setCount(totalPages);
         }
         }).catch(err=>console.log(err))
+    }
+
+    const getAllFav=()=>{
+        axios.get("https://noweasydigital-mockserver.onrender.com/favourites")
+        .then(res=>setFavBlogs(res.data.length))
+        .catch(err=>console.log(err))
     }
 
     useEffect(()=>{
@@ -42,6 +48,7 @@ export default function Homepage(){
 
     useEffect(()=>{
         totalPages();
+        getAllFav();
     },[]);
 
     const addPost=({title,image,content,handleClose})=>{
@@ -91,7 +98,7 @@ export default function Homepage(){
                     md={5}
                     lg={5}
                     key={ele.id} >
-                        <AddToFavButton ele={ele} />
+                        <AddToFavButton getAllFav={getAllFav} ele={ele} />
                         <PostCard id={ele.id} image={ele.image} title={ele.title} />
                     </Grid>
                     )

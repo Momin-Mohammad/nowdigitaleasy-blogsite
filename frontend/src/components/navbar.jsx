@@ -6,8 +6,9 @@ import Typography from '@mui/material/Typography';
 import {useNavigate} from 'react-router-dom'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export default function Navbar() {
+export default function Navbar({favBlogs}) {
   const navigate = useNavigate();
+  
   return (
     <Box 
     sx={{ flexGrow: 1, }} 
@@ -42,7 +43,7 @@ export default function Navbar() {
           gap={"3%"} 
           alignItems={"center"} 
           onClick={()=>navigate("/favourites")} 
-          variant="h8" > <FavoriteIcon /> </Typography>
+          variant="h8">{favBlogs} <FavoriteIcon /> </Typography>
         </Toolbar>
       </AppBar>
     </Box>
