@@ -20,16 +20,16 @@ This project demonstrate a simple Blogging application where user can add Blog a
 7. Responsive website.
 
 ## Screenshots:
-![1](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(62).png)
+![1](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(62).png)
 
-![2](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(63).png)
+![2](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(63).png)
 
-![3](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(64).png)
+![3](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(64).png)
 
-![4](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(65).png)
+![4](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(65).png)
 
-![5](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(66).png)
+![5](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(66).png)
 
-![6](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(69).png)
+![6](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(69).png)
 
-![7](https://github.com/Momin-Mohammad/OMDb-app/blob/main/frontend/src/screenshots/Screenshot%20(70).png)
+![7](https://github.com/Momin-Mohammad/nowdigitaleasy-blogsite/blob/main/frontend/src/screenshots/Screenshot%20(70).png)
